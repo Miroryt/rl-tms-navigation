@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>kuka_rl_agent</name>
+  <version>0.1.0</version>
+  <description>Reinforcement Learning agent (SAC) for KUKA iiwa 14 in Gazebo Harmonic (ROS2 Jazzy)</description>
+
+  <maintainer email="miroryt@uef.fi">Miro Rytkönen</maintainer>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>gym</exec_depend>
+  <exec_depend>torch</exec_depend>
+  <exec_depend>yaml</exec_depend>
+</package>
