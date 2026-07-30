@@ -12,7 +12,7 @@ from the surface of a head model, with the end-effector oriented along the norma
 The project features a few gazebo assets [here](https://github.com/Miroryt/rl-tms-navigation/tree/master/src/gazebo), including a world "my_world.sdf", which has a head model spawned on the air along with the KUKA cobot. Additionally, a red transparent TMS coil ("coil_xy_short.stl") is spawned to the goal position in the desired
 orientation to help visualize the goal of the agent and better evaluate the performance of the neural network.
 
-![demo gif](https://github.com/Miroryt/rl-tms-navigation/blob/master/sac_demo.gif)
+![demo gif](https://github.com/Miroryt/rl-tms-navigation/blob/main/sac_demo.gif)
 
 As of now, you need to edit the gazebo launch files [gazebo.launch.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/gazebo.launch.py) and [gazebo.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/lbr_bringup/gazebo.py)
 to include the gazebo world of this repository if you want the head model to spawn. Readymade modified launch files can be found [here](https://github.com/Miroryt/rl-tms-navigation/tree/master/src/modified_launch_files). Replace them with the ones from [lbr_fri_ros2_stack](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/) and change the path to
