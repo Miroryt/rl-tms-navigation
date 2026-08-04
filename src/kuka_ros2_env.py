@@ -710,7 +710,6 @@ class KukaRos2Env(gym.Env):
         ])
 
         # at episode end:
-        #self.joint_times != 0 needs to be removed when evaluating NN and not OMPL
         if self.training is False:
             temp_flag = np.any(self.joint_times) and np.any(self.distances)
             if temp_flag:
