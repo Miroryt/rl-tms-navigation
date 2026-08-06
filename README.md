@@ -14,9 +14,9 @@ orientation to help visualize the goal of the agent and better evaluate the perf
 
 ![demo gif](https://github.com/Miroryt/rl-tms-navigation/blob/main/sac_demo.gif)
 
-As of now, you need to edit the gazebo launch files [gazebo.launch.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/gazebo.launch.py) and [gazebo.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/lbr_bringup/gazebo.py)
+You need to edit the lbr-stack gazebo launch files [gazebo.launch.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/gazebo.launch.py) and [gazebo.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/lbr_bringup/gazebo.py)
 to include the gazebo world of this repository if you want the head model to spawn. Readymade modified launch files can be found [here](https://github.com/Miroryt/rl-tms-navigation/tree/master/src/modified_launch_files). Replace them with the ones from [lbr_fri_ros2_stack](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/) and change the path to
-"my_world" to match your system.
+"my_world" to match your system. You need to also change two paths in 'kuka_ros2_env.py' to match your system, depending on where you have cloned the lbr-stack repository.
 
 
 ## Quick Start (Linux)
@@ -54,14 +54,19 @@ cd ..
 ```
 
 - In this virtual env:
-- Download (or clone) this repository
+- Clone this repository
 - Install requirements
 
 ```shell
 cd rl-tms-navigation/src
 pip install -r requirements.txt
 ```
-lbr-stack directory handles the simulation. In a new terminal:
+
+Now you need to change two hardcoded paths in 'rl-tms-navigation/src/kuka_ros2_env.py', path to 'my_world.sdf' and path to 'iiwa14.urdf', depending on where they are located
+in your machine. After that, you need to replace the gazebo launch files [gazebo.launch.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/gazebo.launch.py) and [gazebo.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/lbr_bringup/gazebo.py)
+to the ones found in this repository (with the same names).
+
+Now the lbr-stack directory handles the simulation. In a new terminal:
 
 ```shell
 cd lbr-stack
