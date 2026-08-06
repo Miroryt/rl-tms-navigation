@@ -146,7 +146,7 @@ for i_episode in itertools.count(1):
 
 
 """Save model"""
-agent.save_checkpoint(env_name="SAC_KUKA_ROS2", suffix="gen13_5_adaptive")
+agent.save_checkpoint(env_name="SAC_KUKA_ROS2", suffix="agent_name")
 
 env.close()
 

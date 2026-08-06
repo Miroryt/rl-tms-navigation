@@ -34,10 +34,20 @@ from ikpy.link import URDFLink
 
 import json
 
-
 class KukaRos2Env(gym.Env):
-    def __init__(self, sdf_path='/home/miro/lbr-stack/src/lbr_fri_ros2_stack/lbr_bringup/gazebo_worlds/my_world.sdf',
-                 head_model_name='skin', training=False, goal='random', collision=False, plots=False, run_itself=False, action_EE_coordinates=False):
+    def __init__(self,
+
+                 # CORRECT THIS 'my_world.sdf' PATH FOR YOUR MACHINE
+
+                 sdf_path='/home/user/lbr-stack/src/lbr_fri_ros2_stack/lbr_bringup/gazebo_worlds/my_world.sdf',
+
+                 head_model_name='skin',
+                 training=False,
+                 goal='random',
+                 collision=False,
+                 plots=False,
+                 run_itself=False,
+                 action_EE_coordinates=False):
         super().__init__()
         self.training = training
         self.goal = goal
@@ -50,10 +60,10 @@ class KukaRos2Env(gym.Env):
         self.data_file = os.path.expanduser("~/kuka_env_data.json")
 
 
-        #Read the joint info from iiwa14.urdf, and correct wrong paths in mesh info
-        urdf_file = "/home/miro/lbr-stack/src/lbr_fri_ros2_stack/lbr_bringup/gazebo_worlds/iiwa14.urdf"
+        # CORRECT THIS PATH TO 'iiwa14.urdf' FROM YOUR MACHINE
+        urdf_file = "/home/user/lbr-stack/src/lbr_fri_ros2_stack/lbr_bringup/gazebo_worlds/iiwa14.urdf"
         package_map = {
-            "lbr_description": "/home/miro/lbr-stack/src/lbr_fri_ros2_stack/lbr_description"
+            "lbr_description": "/home/user/lbr-stack/src/lbr_fri_ros2_stack/lbr_description"
         }
         fixed_urdf = fix_package_uris(urdf_file, package_map)
         print("Fixed URDF saved to:", fixed_urdf)
@@ -1380,5 +1390,4 @@ class KukaRos2Env(gym.Env):
         T_delta[:3, :3] = rot
 
         return T_delta
-
 
