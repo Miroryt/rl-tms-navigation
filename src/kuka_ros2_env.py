@@ -16,7 +16,6 @@ from std_msgs.msg import Float64MultiArray
 
 from utils import sample_random_quaternion, sample_goal_cartesian, visualize_goal_in_gazebo, set_gazebo_pose
 from Iiwa14FK import Iiwa14FK
-from Iiwa14FK import fix_package_uris
 from action_space import DistanceAdaptiveActionSpace
 
 
@@ -39,7 +38,7 @@ class KukaRos2Env(gym.Env):
 
                  # CORRECT THIS 'my_world.sdf' PATH FOR YOUR MACHINE
 
-                 sdf_path='/home/user/lbr-stack/src/lbr_fri_ros2_stack/lbr_bringup/gazebo_worlds/my_world.sdf',
+                 sdf_path='/home/user/rl-tms-navigation/src/gazebo/my_world.sdf',
 
                  head_model_name='skin',
                  training=False,
@@ -637,6 +636,8 @@ class KukaRos2Env(gym.Env):
                 self.goal_position = self._moving_base_goal.copy()
                 self._moving_idx = 0
                 self._moving_start_time = time.time()
+                print("Set goal position to: ", self.goal_position)
+                print("Set goal orientation to: ", self.goal_orientation)
             if self.goal == 'moving_head':
                 # Reset the cached local coordinates from the previous episode.
                 self.mesh_utils.sample_local = None
