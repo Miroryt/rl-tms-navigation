@@ -147,11 +147,11 @@ def set_gazebo_pose(head_pose, world_name="my_world", model_name="skin", timeout
         "--req", pose_text
     ], check=False)  # check=True will raise on non-zero exit; either works depending on desired behavior
 
-
+# CHANGE "coil_xy_short.stl" TO MATCH YOUR DEVICE !
 def _spawn_marker_model(marker_id: int, pos, orientation, scale=0.02,
                          color_rgba=(1,0,0,1),
                          world_name="my_world"):
-    """Spawn a sphere model as a visual marker using gz create service."""
+    """Spawn a coil model as a visual marker using gz create service."""
     x, y, z = pos
     qx, qy, qz, qw = orientation
     r, g, b, a = color_rgba
@@ -168,7 +168,7 @@ def _spawn_marker_model(marker_id: int, pos, orientation, scale=0.02,
       <transparency>0.5</transparency>
         <geometry>
         <mesh>
-        <uri>file:///home/miro/lbr-stack/src/lbr_fri_ros2_stack/lbr_bringup/gazebo_worlds/coil_xy_short.stl</uri>
+        <uri>file:///home/user/lbr-stack/src/lbr_fri_ros2_stack/lbr_bringup/gazebo_worlds/coil_xy_short.stl</uri>
         <scale>1 1 1</scale>
         </mesh>
         </geometry>

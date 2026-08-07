@@ -42,12 +42,7 @@ def build_chain(robot, base, ee):
 
     return link_chain, joint_chain
 
-"""URDF can be created by running this:
-
-ros2 run xacro xacro \
-  /home/miro/KUKA_RL_SAC/src/lbr_fri_ros2_stack/src/lbr_fri_ros2_stack/lbr_description/urdf/iiwa14/iiwa14.xacro \
-  > /home/miro/iiwa14.urdf
-"""
+"""Class to compute the Forward Kinematic of iiwa 14"""
 class Iiwa14FK:
     def __init__(self, urdf_path, base_link='lbr_link_0', ee_link='lbr_link_ee'):
         self.robot = URDF.load(urdf_path)

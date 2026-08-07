@@ -4,7 +4,6 @@ import math
 import colorednoise as cn
 import numpy as np
 from scipy.fft import fft
-from mesh_utils import MeshUtils
 from scipy.spatial.transform import Rotation as R
 
 """head_motion.py sends gazebo commands to set new pose to the head (move the head)

@@ -4,7 +4,7 @@
   <version>0.1.0</version>
   <description>Reinforcement Learning agent (SAC) for KUKA iiwa 14 in Gazebo Harmonic (ROS2 Jazzy)</description>
 
-  <maintainer email="miroryt@uef.fi">Miro Rytkönen</maintainer>
+  <maintainer email="miro.rytkonen@uef.fi">Miro Rytkönen</maintainer>
 
   <exec_depend>rclpy</exec_depend>
   <exec_depend>sensor_msgs</exec_depend>
