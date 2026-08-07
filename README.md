@@ -2,7 +2,7 @@
 # Reinforcement-learning-based Soft-Actor-Critic Trajectory Planning Agent for Robot-assisted Transcranial Magnetic Stimulation
 
 Reinforcement learning project with KUKA lbr iiwa 14 using ROS2. The RL algorithm used in this project is the Soft-Actor-Critic (SAC). As of now, everything works with ROS2 Jazzy, Gazebo Harmonic (binary installation), running on Ubuntu 24.04.
-ROS 2 packages for the KUKA LBR, including communication to the real cobot via the Fast Robot Interface (FRI) and Gazebo simulation support is from [lbr_fri_ros2_stack](https://github.com/lbr-stack/lbr_fri_ros2_stack).
+ROS 2 packages for the KUKA LBR, including Gazebo simulation support is from [lbr_fri_ros2_stack](https://github.com/lbr-stack/lbr_fri_ros2_stack).
 
 The SAC-algorithm used in this project is modified from [this repository](https://github.com/pranz24/pytorch-soft-actor-critic).
 
