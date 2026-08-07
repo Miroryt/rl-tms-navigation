@@ -132,3 +132,7 @@ joint states are calculated from the initial joint states by adding the actions 
 
 In addition, the program includes the option to set an SAC agent's actions to be the cobot's end-effector cartesian coordinates + orientation as Euler angles (3+3 vector). If an agent is trained with EE position + orientation as action, the cobot's corresponding joint angles are computed with inverse kinematics via "ikpy" library (https://github.com/Phylliade/ikpy).
 **According to our experiments, having the EE position + orientation as action yields better performance in comparison to having the cobot's joint angles as action.**
+
+## Data
+
+The performance evaluation data of the pre-trained model is logged in [/src/evaluation_data](https://github.com/Miroryt/rl-tms-navigation/tree/master/src/evaluation_data), with 150 episodes of navigation data with both a moving target and a static target.
