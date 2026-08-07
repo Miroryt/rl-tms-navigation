@@ -14,6 +14,8 @@ orientation to help visualize the goal of the agent and better evaluate the perf
 
 ![demo gif](https://github.com/Miroryt/rl-tms-navigation/blob/main/sac_demo.gif)
 
+<img src="https://github.com/Miroryt/rl-tms-navigation/blob/main/sac_demo.gif" alt="demo gif" width="500"/>
+
 You need to edit the lbr-stack gazebo launch files [gazebo.launch.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/gazebo.launch.py) and [gazebo.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/lbr_bringup/gazebo.py)
 to include the gazebo world of this repository if you want the head model to spawn. Readymade modified launch files can be found [here](https://github.com/Miroryt/rl-tms-navigation/tree/master/src/modified_launch_files). Replace them with the ones from [lbr_fri_ros2_stack](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/) and change the path to
 "my_world" to match your system. You need to also change two paths in 'kuka_ros2_env.py' to match your system, depending on where you have cloned the lbr-stack repository.
