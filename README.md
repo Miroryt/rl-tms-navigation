@@ -21,6 +21,9 @@ to include the gazebo world of this repository if you want the head model to spa
 
 ## Quick Start (Linux)
 
+> [!CAUTION]
+> It is recommended to run this program using a system with a dedicated GPU.
+
 To run this program, follow the steps in [lbr_fri_ros2_stack](https://github.com/lbr-stack/lbr_fri_ros2_stack): 
 - Install ROS2 dev tools:
 `sudo apt install ros-dev-tools`
@@ -62,9 +65,28 @@ cd rl-tms-navigation/src
 pip install -r requirements.txt
 ```
 
-Now you need to change two hardcoded paths in 'rl-tms-navigation/src/kuka_ros2_env.py', path to 'my_world.sdf' and path to 'iiwa14.urdf', depending on where they are located
-in your machine. After that, you need to replace the gazebo launch files [gazebo.launch.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/gazebo.launch.py) and [gazebo.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/lbr_bringup/gazebo.py)
-to the ones found in this repository (with the same names).
+- Also make sure you have these ROS2 packages installed:
+
+```shell
+sudo apt update
+sudo apt install ros-jazzy-ament-index-python \
+                 ros-jazzy-rclpy \
+                 ros-jazzy-launch-ros \
+                 ros-jazzy-moveit \
+                 ros-jazzy-geometry-msgs \
+                 ros-jazzy-sensor-msgs \
+                 ros-jazzy-std-msgs \
+                 ros-jazzy-trajectory-msgs
+```
+
+> [!CAUTION]
+There is a few pathing issues that need to be resolved. In order to launch the "my_world.sdf" -file, you need to change a few paths in the lbr-stack code and this project code.
+First, change two hardcoded paths in 'rl-tms-navigation/src/kuka_ros2_env.py', path to 'my_world.sdf' and path to 'iiwa14_kinematic.urdf', depending on where they are located
+in your machine. After that, in [gazebo.launch.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/gazebo.launch.py) and [gazebo.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/lbr_bringup/gazebo.py),
+the default world file in the launch arguments is "empty.sdf". If you want the head model to spawn, and have the KUKA oriented similarly to our experimental setup, you need to launch the "my_world.sdf" file.
+Furthermore, if you want to mount the TMS coil model to the KUKA end-effector, you need to replace the "lbr_iiwa14_r820_macro.xacro" file with the one found in this repository inside /gazebo, and again, change the path to "coil_xy.stl" to match your device.
+Apologies for the inconvenience.
+
 
 Now the lbr-stack directory handles the simulation. In a new terminal:
 

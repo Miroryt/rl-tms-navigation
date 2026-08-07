@@ -60,16 +60,11 @@ class KukaRos2Env(gym.Env):
         self.data_file = os.path.expanduser("~/kuka_env_data.json")
 
 
-        # CORRECT THIS PATH TO 'iiwa14.urdf' FROM YOUR MACHINE
-        urdf_file = "/home/user/lbr-stack/src/lbr_fri_ros2_stack/lbr_bringup/gazebo_worlds/iiwa14.urdf"
-        package_map = {
-            "lbr_description": "/home/user/lbr-stack/src/lbr_fri_ros2_stack/lbr_description"
-        }
-        fixed_urdf = fix_package_uris(urdf_file, package_map)
-        print("Fixed URDF saved to:", fixed_urdf)
+        # CORRECT THIS PATH TO 'iiwa14.urdf' MATCHING THE LOCATION ON YOUR DEVICE
+        iiwa14_kinematic_chain = "/home/user/rl-tms-navigation/src/gazebo/iiwa14_kinematic.urdf"
 
         self.fk_model = Iiwa14FK(
-            urdf_path=fixed_urdf,  # match the URDF launched in Gazebo
+            urdf_path=iiwa14_kinematic_chain,  # match the URDF launched in Gazebo
             base_link='lbr_link_0',
             ee_link='lbr_link_ee'
         )
