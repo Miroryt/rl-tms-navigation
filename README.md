@@ -105,9 +105,8 @@ model:=iiwa14
 cd lbr-stack
 source install/setup.bash
 source ~my_env/.venv/bin/activate
+cd
 cd /rl-tms-navigation/src
-cd --
-cd rl-tms-navigation/src
 python3 Evaluation.py
 ```
 
