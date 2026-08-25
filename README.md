@@ -113,13 +113,7 @@ python3 Evaluation.py
 
 --> And the Robot should start moving in Gazebo. You may need to change the path to the pre-trained model in Evaluation.py.
 
-If you don't want to render the animation, you can use a mock launch:
 
-```shell
-ros2 launch lbr_bringup mock.launch.py \
-ctrl:=joint_trajectory_controller \
-model:=iiwa14
-```
 
 ## Training neural networks
 
