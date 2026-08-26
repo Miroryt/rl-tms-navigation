@@ -75,7 +75,7 @@ sudo apt install ros-jazzy-ament-index-python \
 ```
 
 > [!CAUTION]
-There is a few pathing issues that need to be resolved. In order to launch the "my_world.sdf" -file, you need to change a few paths in the lbr-stack code and this project code.
+As of now, there is a few pathing issues that need to be resolved. In order to launch the "my_world.sdf" -file, you need to change a few paths in the lbr-stack code and this project code.
 First, change two hardcoded paths in 'rl-tms-navigation/src/kuka_ros2_env.py', path to 'my_world.sdf' and path to 'iiwa14_kinematic.urdf', depending on where they are located
 in your machine. After that, in [gazebo.launch.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/gazebo.launch.py) and [gazebo.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/lbr_bringup/gazebo.py),
 the default world file in the launch arguments is "empty.sdf". If you want the head model to spawn, and have the KUKA oriented similarly to our experimental setup, you need to launch the "my_world.sdf" file.
