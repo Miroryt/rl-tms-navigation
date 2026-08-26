@@ -42,11 +42,7 @@ DEFAULT_URDF_PATH = os.path.join(CURRENT_DIR, 'gazebo', 'iiwa14_kinematic.urdf')
 
 class KukaRos2Env(gym.Env):
     def __init__(self,
-
-                 # CORRECT THIS 'my_world.sdf' PATH FOR YOUR MACHINE
-
                  sdf_path=DEFAULT_SDF_PATH,
-
                  head_model_name='skin',
                  training=False,
                  goal='random',
