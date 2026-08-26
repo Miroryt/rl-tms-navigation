@@ -33,12 +33,19 @@ from ikpy.link import URDFLink
 
 import json
 
+# Absolute path of the directory containing this Python file
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Add 'gazebo' and the file names to the path
+DEFAULT_SDF_PATH = os.path.join(CURRENT_DIR, 'gazebo', 'my_world.sdf')
+DEFAULT_URDF_PATH = os.path.join(CURRENT_DIR, 'gazebo', 'iiwa14_kinematic.urdf')
+
 class KukaRos2Env(gym.Env):
     def __init__(self,
 
                  # CORRECT THIS 'my_world.sdf' PATH FOR YOUR MACHINE
 
-                 sdf_path='/home/user/rl-tms-navigation/src/gazebo/my_world.sdf',
+                 sdf_path=DEFAULT_SDF_PATH,
 
                  head_model_name='skin',
                  training=False,
@@ -58,9 +65,7 @@ class KukaRos2Env(gym.Env):
         # Where to store the accumulated data
         self.data_file = os.path.expanduser("~/kuka_env_data.json")
 
-
-        # CORRECT THIS PATH TO 'iiwa14.urdf' MATCHING THE LOCATION ON YOUR DEVICE
-        iiwa14_kinematic_chain = "/home/user/rl-tms-navigation/src/gazebo/iiwa14_kinematic.urdf"
+        iiwa14_kinematic_chain = DEFAULT_URDF_PATH
 
         self.fk_model = Iiwa14FK(
             urdf_path=iiwa14_kinematic_chain,  # match the URDF launched in Gazebo

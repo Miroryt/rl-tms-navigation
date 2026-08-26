@@ -10,6 +10,11 @@ from torch.utils.tensorboard import SummaryWriter
 from ReplayBuffer import ReplayMemory
 from gym.wrappers import TimeLimit
 
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+CHECKPOINT_PATH = os.path.join(CURRENT_DIR, 'checkpoints', 'sac_checkpoint_agent')
+
 """Parse command line arguments"""
 parser = argparse.ArgumentParser(description='PyTorch Soft Actor-Critic Args')
 parser.add_argument('--env-name', default="KUKA_ROS2_ENV",
@@ -71,7 +76,7 @@ state, _ = env.reset()       # seeds env’s RNG
 agent = SAC(env.observation_space.shape[0], env.action_space, args)
 
 """To load an already existing agent:"""
-#agent.load_checkpoint(ckpt_path="~/rl-tms-navigation/src/checkpoints/sac_checkpoint_agent", evaluate=False)
+#agent.load_checkpoint(ckpt_path=CHECKPOINT_PATH, evaluate=False)
 
 """Initialize TensorBoard writer to log losses and rewards over time"""
 writer = SummaryWriter('runs/{}_SAC_{}_{}'.format(datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"), args.env_name,

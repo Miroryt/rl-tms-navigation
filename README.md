@@ -76,9 +76,8 @@ sudo apt install ros-jazzy-ament-index-python \
 ```
 
 > [!CAUTION]
-There is a few pathing issues that need to be resolved. In order to launch the "my_world.sdf" -file, you need to change a few paths in the lbr-stack code and this project code.
-First, change two hardcoded paths in 'rl-tms-navigation/src/kuka_ros2_env.py', path to 'my_world.sdf' and path to 'iiwa14_kinematic.urdf', depending on where they are located
-in your machine. After that, in [gazebo.launch.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/gazebo.launch.py) and [gazebo.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/lbr_bringup/gazebo.py),
+As of now, there is a few pathing issues that need to be resolved. In order to launch the "my_world.sdf" -file, you need to change a few paths in the lbr-stack code and this project code. First, a few 
+hardcoded paths in "my_world.sdf" that are referencing to the head model "skin.stl" found inside /gazebo need to be edited. After that, in [gazebo.launch.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/gazebo.launch.py) and [gazebo.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/lbr_bringup/gazebo.py),
 the default world file in the launch arguments is "empty.sdf". If you want the head model to spawn, and have the KUKA oriented similarly to our experimental setup, you need to launch the "my_world.sdf" file.
 Furthermore, if you want to mount the TMS coil model to the KUKA end-effector, you need to replace the "lbr_iiwa14_r820_macro.xacro" file with the one found in this repository inside /gazebo, and again, change the path to "coil_xy.stl" to match your device.
 Apologies for the inconvenience.
@@ -105,13 +104,12 @@ model:=iiwa14
 cd lbr-stack
 source install/setup.bash
 source ~my_env/.venv/bin/activate
-cd /rl-tms-navigation/src
 cd --
-cd rl-tms-navigation/src
+cd /rl-tms-navigation/src
 python3 Evaluation.py
 ```
 
---> And the Robot should start moving in Gazebo. You may need to change the path to the pre-trained model in Evaluation.py.
+--> And the Robot should start moving in Gazebo.
 
 
 

@@ -8,8 +8,13 @@ from gymnasium.envs.mujoco.mujoco_env import MujocoEnv
 import numpy as np
 import itertools
 import torch
+import os
 from sac import SAC
 from kuka_ros2_env import KukaRos2Env
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+CHECKPOINT_PATH = os.path.join(CURRENT_DIR, 'checkpoints', 'sac_checkpoint_agent')
 
 """Parse command line arguments"""
 parser = argparse.ArgumentParser(description='PyTorch Soft Actor-Critic Args')
@@ -56,7 +61,7 @@ args = parser.parse_args()
 env = KukaRos2Env(training=False, goal='moving_head', collision=True, plots=True, run_itself=True, action_EE_coordinates=True) # initialize your environment
 
 agent = SAC(env.observation_space.shape[0], env.action_space, args)  # initialize the agent object
-agent.load_checkpoint("/home/user/rl-tms-navigation/src/checkpoints/sac_checkpoint_agent", evaluate=True) # Change the path to match your device
+agent.load_checkpoint(CHECKPOINT_PATH, evaluate=True) # Change the path to match your device
 updates = 0
 
 
