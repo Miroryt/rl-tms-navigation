@@ -77,7 +77,7 @@
         <collision name='collision'>
           <geometry>
             <mesh>
-              <uri>file:///home/user/rl-tms-navigation/src/gazebo/skin.stl</uri>
+              <uri>skin.stl</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -86,7 +86,7 @@
         <visual name='visual'>
           <geometry>
             <mesh>
-              <uri>file:///home/user/rl-tms-navigation/src/gazebo/skin.stl</uri>
+              <uri>skin.stl</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>

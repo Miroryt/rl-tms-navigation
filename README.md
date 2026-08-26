@@ -76,11 +76,12 @@ sudo apt install ros-jazzy-ament-index-python \
 ```
 
 > [!CAUTION]
-As of now, there is a few pathing issues that need to be resolved. In order to launch the "my_world.sdf" -file, you need to change a few paths in the lbr-stack code and this project code. First, a few 
-hardcoded paths in "my_world.sdf" that are referencing to the head model "skin.stl" found inside /gazebo need to be edited. After that, in [gazebo.launch.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/gazebo.launch.py) and [gazebo.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/lbr_bringup/gazebo.py),
+As of now, there is a few pathing issues that need to be resolved. In order to launch the "my_world.sdf" -file, you need to change a few files and paths.
+First, in [gazebo.launch.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/launch/gazebo.launch.py) and [gazebo.py](https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/jazzy/lbr_bringup/lbr_bringup/gazebo.py),
 the default world file in the launch arguments is "empty.sdf". If you want the head model to spawn, and have the KUKA oriented similarly to our experimental setup, you need to launch the "my_world.sdf" file.
-Furthermore, if you want to mount the TMS coil model to the KUKA end-effector, you need to replace the "lbr_iiwa14_r820_macro.xacro" file with the one found in this repository inside /gazebo, and again, change the path to "coil_xy.stl" to match your device.
-Apologies for the inconvenience.
+Furthermore, if you want to mount the TMS coil model to the KUKA end-effector, you need to replace the "lbr_iiwa14_r820_macro.xacro" file with the one found in this repository inside /gazebo, 
+and change the path to "coil_xy.stl" to match your device. The file "lbr_iiwa14_r820_macro.xacro" contains the robot description, and it has been modified such that
+the end-effector link has a mesh called "coil_xy.stl" (TMS-coil).
 
 
 Now the lbr-stack directory handles the simulation. In a new terminal:

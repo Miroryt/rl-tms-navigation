@@ -5,6 +5,7 @@ import random
 from scipy.spatial.transform import Rotation as R
 import subprocess
 import time
+import os
 
 def create_log_gaussian(mean, log_std, t):
     """Compute element-wise log-probability of sample t under a diagonal Gaussian defined by mean and log_std"""
@@ -147,7 +148,7 @@ def set_gazebo_pose(head_pose, world_name="my_world", model_name="skin", timeout
         "--req", pose_text
     ], check=False)  # check=True will raise on non-zero exit; either works depending on desired behavior
 
-# CHANGE "coil_xy_short.stl" TO MATCH YOUR DEVICE !
+
 def _spawn_marker_model(marker_id: int, pos, orientation, scale=0.02,
                          color_rgba=(1,0,0,1),
                          world_name="my_world"):
@@ -159,28 +160,36 @@ def _spawn_marker_model(marker_id: int, pos, orientation, scale=0.02,
 
     print("Spawning marker at ", pos, orientation)
 
+    # Dynamically find the path to the 'gazebo' folder relative to this script
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    stl_path = os.path.join(current_dir, 'gazebo', 'coil_xy_short.stl')
+
+    # Format it as a Gazebo-friendly file:// URI
+    dynamic_stl_uri = f"file://{stl_path}"
+
+    # Inject the dynamic URI into SDF string
     sdf = f"""<?xml version="1.0" ?>
-<sdf version="1.8">
-  <model name="marker_{marker_id}">
-    <static>true</static>
-    <link name="link">
-      <visual name="visual">
-      <transparency>0.5</transparency>
-        <geometry>
-        <mesh>
-        <uri>file:///home/user/lbr-stack/src/lbr_fri_ros2_stack/lbr_bringup/gazebo_worlds/coil_xy_short.stl</uri>
-        <scale>1 1 1</scale>
-        </mesh>
-        </geometry>
-        <material>
-          <ambient>{r} {g} {b} {a}</ambient>
-          <diffuse>{r} {g} {b} {a}</diffuse>
-          <specular>0.3 0.3 0.3 1.0</specular>
-        </material>
-      </visual>
-    </link>
-  </model>
-</sdf>"""
+    <sdf version="1.8">
+      <model name="marker_{marker_id}">
+        <static>true</static>
+        <link name="link">
+          <visual name="visual">
+          <transparency>0.5</transparency>
+            <geometry>
+            <mesh>
+            <uri>{dynamic_stl_uri}</uri>
+            <scale>1 1 1</scale>
+            </mesh>
+            </geometry>
+            <material>
+              <ambient>{r} {g} {b} {a}</ambient>
+              <diffuse>{r} {g} {b} {a}</diffuse>
+              <specular>0.3 0.3 0.3 1.0</specular>
+            </material>
+          </visual>
+        </link>
+      </model>
+    </sdf>"""
 
     req = (
         f'name: "marker_{marker_id}" '

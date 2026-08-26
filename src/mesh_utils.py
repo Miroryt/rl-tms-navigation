@@ -114,17 +114,21 @@ class MeshUtils:
     # HELPERS
     # ------------------------------------------------------------------------
 
-    @staticmethod
-    def _file_uri_to_path(uri: str) -> str:
-        if not uri.startswith('file:'):
-            return uri
-        u = urlparse(uri)
-        path = os.path.normpath(unquote(u.path))
-        if u.netloc:
-            path = f"/{u.netloc}{path}"
-        if not path.startswith('/'):
-            path = '/' + path
-        return path
+    def _file_uri_to_path(self, uri):
+        """
+        Extracts the filename from the URI and finds it in the same directory as the SDF file.
+        """
+        # Clean the URI to get just the filename (e.g., "skin.stl")
+        # This handles both "file:///..." strings and plain "skin.stl" strings
+        filename = os.path.basename(uri.replace("file://", ""))
+
+        # Get the directory where the SDF file is located
+        sdf_dir = os.path.dirname(os.path.abspath(self.sdf_path))
+
+        # Combine them to get the exact path to the .stl file
+        dynamic_mesh_path = os.path.join(sdf_dir, filename)
+
+        return dynamic_mesh_path
 
     def _get_model_pose_and_mesh(self):
         """A function that finds head mesh (name: skin) pose, path and scale from gazebo world 'my_world.sdf'"""
