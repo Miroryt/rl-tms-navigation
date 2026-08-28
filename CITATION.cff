@@ -13,7 +13,7 @@ authors:
   - family-names: "Kortelainen"
     given-names: "Matti"
 preferred-citation:
-  type: unpublished
+  type: misc
   title: "Reinforcement-Learning-Based Soft-Actor-Critic Trajectory Planning Agent for Robot-Assisted Transcranial Magnetic Stimulation"
   authors:
   - family-names: "Rytkönen"
