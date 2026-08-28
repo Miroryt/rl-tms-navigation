@@ -125,3 +125,21 @@ In addition, the program includes the option to set an SAC agent's actions to be
 ## Data
 
 The performance evaluation data of the pre-trained model is logged in [/src/evaluation_data](https://github.com/Miroryt/rl-tms-navigation/tree/master/src/evaluation_data), with 150 episodes of navigation data with both a moving target and a static target.
+
+
+## Cite us
+
+If this repository is useful for your work, please cite our paper:
+
+> M. Rytkönen, A. Beattie, P. Vartiainen, P. Karjalainen, M. Kortelainen, "Reinforcement-Learning-Based Soft-Actor-Critic Trajectory Planning Agent for Robot-Assisted Transcranial Magnetic Stimulation," 2026.
+> [ResearchGate link](https://www.researchgate.net/publication/413630905_Reinforcement-Learning-Based_Soft-Actor-Critic_Trajectory_Planning_Agent_for_Robot-Assisted_Transcranial_Magnetic_Stimulation)
+
+```bibtex
+@article{rytkonen2026tmssac,
+  title   = {Reinforcement-Learning-Based Soft-Actor-Critic Trajectory Planning Agent for Robot-Assisted Transcranial Magnetic Stimulation},
+  author  = {Rytkönen, Miro and Beattie, Alexander and Vartiainen, Paavo and Karjalainen, Pasi and Kortelainen, Matti},
+  year    = {2026},
+  doi     = {10.13140/RG.2.2.22505.45922},
+  url     = {https://www.researchgate.net/publication/413630905_Reinforcement-Learning-Based_Soft-Actor-Critic_Trajectory_Planning_Agent_for_Robot-Assisted_Transcranial_Magnetic_Stimulation}
+}
+```

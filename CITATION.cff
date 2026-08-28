@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the paper below."
+title: "Reinforcement-learning-based Soft-Actor-Critic Trajectory Planning Agent for Robot-assisted Transcranial Magnetic Stimulation"
+authors:
+  - family-names: "Rytkönen"
+    given-names: "Miro"
+  - family-names: "Beattie"
+    given-names: "Alexander"
+  - family-names: "Vartiainen"
+    given-names: "Paavo"
+  - family-names: "Karjalainen"
+    given-names: "Pasi"
+  - family-names: "Kortelainen"
+    given-names: "Matti"
+preferred-citation:
+  type: article
+  title: "Reinforcement-Learning-Based Soft-Actor-Critic Trajectory Planning Agent for Robot-Assisted Transcranial Magnetic Stimulation"
+  authors:
+  - family-names: "Rytkönen"
+    given-names: "Miro"
+  - family-names: "Beattie"
+    given-names: "Alexander"
+  - family-names: "Vartiainen"
+    given-names: "Paavo"
+  - family-names: "Karjalainen"
+    given-names: "Pasi"
+  - family-names: "Kortelainen"
+    given-names: "Matti"
+  year: 2026
+  doi: "10.13140/RG.2.2.22505.45922"
+  identifiers:
+    - type: doi
+      value: "10.13140/RG.2.2.22505.45922"
+  url: "https://www.researchgate.net/publication/413630905_Reinforcement-Learning-Based_Soft-Actor-Critic_Trajectory_Planning_Agent_for_Robot-Assisted_Transcranial_Magnetic_Stimulation"
