@@ -135,7 +135,7 @@ If this repository is useful for your work, please cite our pre-print paper:
 > [ResearchGate link](https://www.researchgate.net/publication/413630905_Reinforcement-Learning-Based_Soft-Actor-Critic_Trajectory_Planning_Agent_for_Robot-Assisted_Transcranial_Magnetic_Stimulation)
 
 ```bibtex
-@article{rytkonen2026tmssac,
+@unpublished{rytkonen2026tmssac,
   title   = {Reinforcement-Learning-Based Soft-Actor-Critic Trajectory Planning Agent for Robot-Assisted Transcranial Magnetic Stimulation},
   author  = {Rytkönen, Miro and Beattie, Alexander and Vartiainen, Paavo and Karjalainen, Pasi and Kortelainen, Matti},
   year    = {2026},
